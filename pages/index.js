@@ -3,6 +3,9 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 
+// getStaticProps : static generation
+// getServerSideProps : server-side rendering
+// useSWR : client-side rendering
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
