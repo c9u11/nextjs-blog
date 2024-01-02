@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.14",
     "date-fns": "^3.0.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
