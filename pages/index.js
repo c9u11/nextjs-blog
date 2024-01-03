@@ -1,24 +1,18 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import { Client } from '@notionhq/client';
 import Link from 'next/link';
 import Date from '../components/date';
+import { getDatabase } from '/api/notion';
 
 // getStaticProps : static generation
 // getServerSideProps : server-side rendering
 // useSWR : client-side rendering
 export async function getStaticProps() {
-  const notion = new Client({
-    auth: process.env.NEXT_PUBLIC_NOTION_TOKEN,
-  });
-
-  const response = await notion.databases.query({
-    database_id: '9105f127b6b740e2a8d38688da6b31d2',
-  })
+  const database = await getDatabase('9105f127b6b740e2a8d38688da6b31d2')
   return {
     props: {
-      posts: response.results,
+      posts: database.results,
     },
   };
 }
