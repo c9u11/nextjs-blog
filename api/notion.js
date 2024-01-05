@@ -15,7 +15,7 @@ const getPage = async (page_id) => {
 }
 
 const getBlocks = async (block_id) => {
-  const response = await notionClient.blocks.retrieve({ block_id })
+  const response = await notionClient.blocks.children.list({ block_id })
   return response;
 }
 
