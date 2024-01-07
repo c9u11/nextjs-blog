@@ -1,15 +1,65 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
+import Head from "next/head";
+import styles from "./layout.module.css";
+import Link from "next/link";
+import styled from "styled-components";
 
-const name = 'c9u11';
-export const siteTitle = 'Next.js Sample Website';
+const name = "c9u11";
+export const siteTitle = "Next.js Sample Website";
+
+const PAGE_DEFAULT_HORIZONTAL_PADDING = "20px";
+
+const Container = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #eff0f3;
+  padding: 20px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
+`;
+const HeaderLeft = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const HeaderRight = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+`;
+
+const BlogTitle = styled.h1`
+  font-size: 36px;
+  color: #001858;
+  margin: 0;
+  padding: 0;
+  &::after{
+  content: ".Blog";
+  font-size: 18px;
+  color: #69B7EE;
+  margin: 0;
+  padding: 0;
+  }
+`;
+
+const HeaderItem = styled(Link)`
+  font-size: 20px;
+  font-weight: bold;
+  color: #2B2C34;
+  margin: 0;
+  padding: 0;
+`;
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -19,51 +69,27 @@ export default function Layout({ children, home }) {
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
+            siteTitle
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <Image
-                priority
-                src="/images/profile.jpg"
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
+      <Header>
+        <HeaderLeft>
+          <BlogTitle>{name}</BlogTitle>
+        </HeaderLeft>
+        <HeaderRight>
+          <HeaderItem href="/">Home</HeaderItem>
+          <HeaderItem href="/about">About</HeaderItem>
+        </HeaderRight>
+      </Header>
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">← Back to home</Link>
         </div>
       )}
-    </div>
+    </Container>
   );
 }
