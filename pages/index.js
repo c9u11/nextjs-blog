@@ -9,7 +9,7 @@ import { getDatabase } from '/api/notion';
 // getServerSideProps : server-side rendering
 // useSWR : client-side rendering
 export async function getStaticProps() {
-  const database = await getDatabase('9105f127b6b740e2a8d38688da6b31d2')
+  const database = await getDatabase('9105f127b6b740e2a8d38688da6b31d2');
   return {
     props: {
       posts: database.results,
@@ -18,7 +18,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
-  console.log(posts);
   return (
     <Layout home>
       <Head>
