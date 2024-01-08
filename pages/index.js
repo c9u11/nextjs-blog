@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
-import Date from '../components/date';
 import { getDatabase } from '/api/notion';
+import { PostList, PostItem } from '../components/post';
 
 // getStaticProps : static generation
 // getServerSideProps : server-side rendering
@@ -23,26 +22,13 @@ export default function Home({ posts }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>[Hello World]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+        <PostList>
           {posts?.map(({ id, properties, last_edited_time }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{properties.Name.title[0].plain_text}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={last_edited_time} />
-              </small>
-            </li>
+            <PostItem key={id} id={id} title={properties.Name.title[0].plain_text} lastEditedTime={last_edited_time} />
           ))}
-        </ul>
+        </PostList>
       </section>
     </Layout>
   );
