@@ -62,7 +62,7 @@ const Main = styled.main`
   padding: 20px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
 `;
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   return (
     <Container>
       <Head>
@@ -90,11 +90,6 @@ export default function Layout({ children, home }) {
         </HeaderRight>
       </Header>
       <Main>{children}</Main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
     </Container>
   );
 }
