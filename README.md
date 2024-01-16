@@ -1,1 +1,20 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+- [x] 블로그 글 노출
+  - [x] Notion API를 통해 목록 조회 및 표시
+  - [x] Notion API를 통해 컨텐츠 조회 및 표시
+- [ ] 카테고리 분류 (Tag)
+  - [ ] Notion API Module 수정
+  - [ ] 목록에서 카테고리 표시
+  - [ ] 컨텐츠에서 카테고리 표시
+- [ ] 필터링 기능
+  - [ ] 목록에 카테고리 필터 개발
+  - [ ] 검색 기능 개발
+- [ ] Notion Render Library 개발
+- [ ] 블로그 꾸미기
+  - [ ] 홈 화면 디자인
+  - [ ] 상단 바 디자인
+  - [ ] Footer 디자인
+- [ ] 성능 개선
+  - [ ] Infinity Scroll 기능 개발
+- [ ] 신규 기능 추가
+  - [ ] 댓글
+  - [ ] 조회수
