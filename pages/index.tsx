@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import { getDatabase } from '/api/notion';
 import { PostList, PostItem } from '../components/post';
+import { getDatabase } from '../api/notion';
 
 // getStaticProps : static generation
 // getServerSideProps : server-side rendering
