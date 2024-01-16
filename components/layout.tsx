@@ -87,6 +87,7 @@ export default function Layout({ children }) {
         <HeaderRight>
           <HeaderItem href="/">Home</HeaderItem>
           <HeaderItem href="/about">About</HeaderItem>
+          <HeaderItem href="/posts">Posts</HeaderItem>
         </HeaderRight>
       </Header>
       <Main>{children}</Main>
