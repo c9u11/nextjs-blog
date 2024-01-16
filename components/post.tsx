@@ -50,7 +50,13 @@ const DateContainer = styled.div`
   text-decoration: none;
 `
 
-const PostItem = ({ id, title, lastEditedTime }) => {
+interface PostItemProps {
+  id: string;
+  title: string;
+  lastEditedTime: string;
+}
+
+const PostItem = ({ id, title, lastEditedTime }: PostItemProps) => {
   return (
     <CustomLink href={`/posts/${id}`}>
       <PostItemContainer>

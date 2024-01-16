@@ -62,7 +62,11 @@ const Main = styled.main`
   padding: 20px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
 `;
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <Container>
       <Head>
