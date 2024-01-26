@@ -4,17 +4,17 @@ import { getDatabase, getPage, getBlocks } from '../../api/notion';
 import { Render } from '@9gustin/react-notion-render';
 import Layout from '../../components/layout';
 
-export async function getStaticPaths() {
-  const paths = (await getDatabase('9105f127b6b740e2a8d38688da6b31d2')).results.map((post) => ({
-    params: { id: post.id },
-  }));
-  return {
-    paths,
-    fallback: false
-  }
-}
+// export async function getStaticPaths() {
+//   const paths = (await getDatabase('9105f127b6b740e2a8d38688da6b31d2')).results.map((post) => ({
+//     params: { id: post.id },
+//   }));
+//   return {
+//     paths,
+//     fallback: false
+//   }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const page = await getPage(params.id);
   const blocks = await getBlocks(params.id);
   return {
@@ -22,7 +22,7 @@ export async function getStaticProps({ params }) {
       page,
       blocks
     }
-  }
+  };
 }
 
 export default function Post({ page, blocks }) {
