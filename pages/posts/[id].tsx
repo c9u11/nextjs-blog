@@ -3,6 +3,7 @@ import Date from '../../components/date';
 import { getDatabase, getPage, getBlocks } from '../../api/notion';
 import { Render } from '@9gustin/react-notion-render';
 import Layout from '../../components/layout';
+import '@9gustin/react-notion-render/dist/index.css'
 
 // export async function getStaticPaths() {
 //   const paths = (await getDatabase('9105f127b6b740e2a8d38688da6b31d2')).results.map((post) => ({
@@ -37,7 +38,7 @@ export default function Post({ page, blocks }) {
         <div>
           <Date dateString={page.last_edited_time} />
         </div>
-        <Render blocks={blocks.results} />
+        <Render blocks={blocks.results} useStyles />
       </article>
     </Layout>
   );
