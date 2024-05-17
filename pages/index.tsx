@@ -22,16 +22,6 @@ export default function Home({ posts }) {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <PostList>
-          {posts?.map(({ id, properties, last_edited_time }) => (
-            <PostItem
-              key={id}
-              id={id}
-              title={properties.Name.title[0].plain_text}
-              lastEditedTime={last_edited_time}
-            />
-          ))}
-        </PostList>
       </section>
     </Layout>
   );
