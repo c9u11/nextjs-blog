@@ -59,7 +59,7 @@ const Tag = styled.span<{ $color: string }>`
   font-size: 10px;
   font-weight: 300;
   color: white;
-  background-color: ${({ $color }) => $color};
+  background-color: ${({ $color }) => `var(--${$color}-text)`};
   padding: 3px 6px;
   text-decoration: none;
   width: fit-content;
