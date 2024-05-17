@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "./layout.module.css";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -20,7 +19,7 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #eff0f3;
+  background-color: var(--sidebar-background);
   padding: 20px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
 `;
 const HeaderLeft = styled.div`
@@ -41,23 +40,24 @@ const BlogTitle = styled.h1`
   margin: 0;
   padding: 0;
   &::after{
-  content: ".Blog";
-  font-size: 18px;
-  color: #69B7EE;
-  margin: 0;
-  padding: 0;
+    content: ".Blog";
+    font-size: 18px;
+    color: #337ea9;
+    margin: 0;
+    padding: 0;
   }
 `;
 
 const HeaderItem = styled(Link)`
   font-size: 20px;
   font-weight: bold;
-  color: #2B2C34;
+  color: var(--primary-text);
   margin: 0;
   padding: 0;
 `;
 
 const Main = styled.main`
+  background-color: var(--main-background);
   width: 100%;
   padding: 20px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
 `;

@@ -20,7 +20,7 @@ body {
 :root {
   --main-background: #ffffff;
   --sidebar-background: #f7f6f3;
-  --hover-background: #fffff;
+  --hover-background: #ffffff;
   --primary-text: #37352f;
   --gray-text: #787774;
   --brown-text: #9f6b53;
@@ -33,13 +33,22 @@ body {
   --red-text: #d44c47;
   --gray-background: #f1f1ef;
   --brown-background: #f4eeee;
-  --orange-background: #faebdd;
+  --orange-background: #20201f;
   --yellow-background: #fbf3db;
   --green-background: #edf3ec;
   --blue-background: #e7f3f8;
   --purple-background: #f6f3f9;
   --pink-background: #faf1f5;
   --red-background: #fdebec;
+  --skeleton-background: linear-gradient(
+      120deg,
+      #f1f1ef 30%,
+      #f7f6f3 38%,
+      #f7f6f3 40%,
+      #f1f1ef 48%
+    )
+    200%/200%;
+  --skeleton-animation: skeleton-loading 2s infinite;
 }
 [data-theme="dark"] {
   --main-background: #2f3438;
@@ -63,4 +72,18 @@ body {
   --purple-background: #443f57;
   --pink-background: #533b4c;
   --red-background: #594141;
+  --skeleton-background: linear-gradient(
+    120deg,
+    #373c3f 30%,
+    #454b4e 38%,
+    #454b4e 40%,
+    #373c3f 48%
+  );
+  --skeleton-animation: skeleton-loading 2s infinite;
+}
+
+@keyframes skeleton-loading {
+  100% {
+    background-position: 0%;
+  }
 }

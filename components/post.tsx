@@ -21,7 +21,7 @@ const PostItemContainer = styled.li`
   aspect-ratio: 1;
   gap: 5px;
   &:hover {
-    background-color: #eee;
+    background-color: var(--sidebar-background);
   }
 `
 const PostItemTitle = styled.h3`
@@ -32,7 +32,7 @@ const PostItemTitle = styled.h3`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0;
-  color: #2B2C34;
+  color: var(--primary-text);
 `
 
 const PostImage = styled.img`
@@ -40,13 +40,15 @@ const PostImage = styled.img`
   flex: 1;
   object-fit: cover;
   border-radius: 5px;
-  background-color: #ddd;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray-background);
+
+  background: var(--skeleton-background);
+  animation: var(--skeleton-animation);
 `
 
 const DateContainer = styled.div`
   font-size: 12px;
-  color: #666;
+  color: var(--gray-text);
   text-decoration: none;
 `
 
