@@ -19,14 +19,13 @@ export default function Posts({ posts }) {
   return (
     <Layout>
       <PostList>
-        {posts?.map(({ id, properties, last_edited_time }) => (
-          <PostItem
-            key={id}
-            id={id}
-            title={properties.Name.title[0].plain_text}
-            lastEditedTime={last_edited_time}
-          />
-        ))}
+        {posts?.map(({ id, properties, last_edited_time }) => {
+          const title = properties.Name.title[0].plain_text;
+          const tags = properties.Tags.multi_select;
+          return (
+            <PostItem key={id} id={id} title={title} lastEditedTime={last_edited_time} tags={tags} />
+          )
+        })}
       </PostList>
     </Layout>
   );

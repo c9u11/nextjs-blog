@@ -8,11 +8,10 @@ const CustomLink = styled(Link)`
 
 const PostList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 5px;
 `
 const PostItemContainer = styled.li`
   display: flex;
@@ -20,13 +19,14 @@ const PostItemContainer = styled.li`
   padding: 10px;
   border-radius: 5px;
   aspect-ratio: 1;
-  gap: 3px;
+  gap: 5px;
   &:hover {
     background-color: #eee;
   }
 `
 const PostItemTitle = styled.h3`
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: bolder;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -45,23 +45,52 @@ const PostImage = styled.img`
 `
 
 const DateContainer = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   color: #666;
   text-decoration: none;
+`
+
+const TagContainer = styled.div`
+  display: flex;
+  gap: 3px;
+`
+
+const Tag = styled.span<{ $color: string }>`
+  font-size: 10px;
+  font-weight: 300;
+  color: white;
+  background-color: ${({ $color }) => $color};
+  padding: 3px 6px;
+  text-decoration: none;
+  width: fit-content;
+  border-radius: 3px;
 `
 
 interface PostItemProps {
   id: string;
   title: string;
   lastEditedTime: string;
+  tags: Tag[];
 }
 
-const PostItem = ({ id, title, lastEditedTime }: PostItemProps) => {
+interface Tag {
+  name: string;
+  color: string;
+}
+
+const PostItem = ({ id, title, lastEditedTime, tags }: PostItemProps) => {
   return (
     <CustomLink href={`/posts/${id}`}>
       <PostItemContainer>
         <PostImage></PostImage>
         <PostItemTitle>{title}</PostItemTitle>
+        <TagContainer>
+          {
+            tags.map((tag) => (
+              <Tag $color={tag.color}>{tag.name}</Tag>
+            ))
+          }
+        </TagContainer>
         <DateContainer>
           <Date dateString={lastEditedTime} />
         </DateContainer>
