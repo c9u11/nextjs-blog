@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { getDatabase } from '../../api/notion';
 import Layout from '../../components/layout';
 import { PostItem, PostList } from '../../components/post';
@@ -16,10 +15,14 @@ export async function getServerSideProps() {
 }
 
 export default function Posts({ posts }) {
+  const filteredPosts = posts.filter(({ properties }) => {
+    const tags = properties.Tags.multi_select;
+    return !tags.some((tag) => tag.name === 'WIP');
+  });
   return (
     <Layout>
       <PostList>
-        {posts?.map(({ id, properties, last_edited_time }) => {
+        {filteredPosts?.map(({ id, properties, last_edited_time }) => {
           const title = properties.Name.title[0].plain_text;
           const tags = properties.Tags.multi_select;
           return (
