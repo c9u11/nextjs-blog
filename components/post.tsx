@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Date from './date';
-import Link from 'next/link';
+import styled from "styled-components";
+import Date from "./date";
+import Link from "next/link";
 
 const CustomLink = styled(Link)`
   text-decoration: none;
@@ -12,7 +12,7 @@ const PostList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-`
+`;
 const PostItemContainer = styled.li`
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ const PostItemContainer = styled.li`
   &:hover {
     background-color: var(--sidebar-background);
   }
-`
+`;
 const PostItemTitle = styled.h3`
   font-size: 14px;
   font-weight: bolder;
@@ -33,7 +33,7 @@ const PostItemTitle = styled.h3`
   white-space: nowrap;
   margin: 0;
   color: var(--primary-text);
-`
+`;
 
 const PostImage = styled.img`
   width: 100%;
@@ -44,18 +44,18 @@ const PostImage = styled.img`
 
   background: var(--skeleton-background);
   animation: var(--skeleton-animation);
-`
+`;
 
 const DateContainer = styled.div`
   font-size: 12px;
   color: var(--gray-text);
   text-decoration: none;
-`
+`;
 
 const TagContainer = styled.div`
   display: flex;
   gap: 3px;
-`
+`;
 
 const Tag = styled.span<{ $color: string }>`
   font-size: 10px;
@@ -66,7 +66,7 @@ const Tag = styled.span<{ $color: string }>`
   text-decoration: none;
   width: fit-content;
   border-radius: 3px;
-`
+`;
 
 interface PostItemProps {
   id: string;
@@ -87,11 +87,9 @@ const PostItem = ({ id, title, lastEditedTime, tags }: PostItemProps) => {
         <PostImage></PostImage>
         <PostItemTitle>{title}</PostItemTitle>
         <TagContainer>
-          {
-            tags.map((tag) => (
-              <Tag $color={tag.color}>{tag.name}</Tag>
-            ))
-          }
+          {tags.map((tag) => (
+            <Tag $color={tag.color}>{tag.name}</Tag>
+          ))}
         </TagContainer>
         <DateContainer>
           <Date dateString={lastEditedTime} />
@@ -99,9 +97,6 @@ const PostItem = ({ id, title, lastEditedTime, tags }: PostItemProps) => {
       </PostItemContainer>
     </CustomLink>
   );
-}
+};
 
-export {
-  PostList,
-  PostItem,
-}
+export { PostList, PostItem };

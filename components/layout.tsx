@@ -19,8 +19,11 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: var(--sidebar-background);
-  padding: 20px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
+  border: 1px solid var(--sidebar-background);
+  background-color: var(--main-background);
+  padding: 10px ${PAGE_DEFAULT_HORIZONTAL_PADDING};
+  position: sticky;
+  top: 0;
 `;
 const HeaderLeft = styled.div`
   display: flex;
@@ -39,7 +42,7 @@ const BlogTitle = styled.h1`
   color: #001858;
   margin: 0;
   padding: 0;
-  &::after{
+  &::after {
     content: ".Blog";
     font-size: 18px;
     color: #337ea9;
