@@ -11,7 +11,8 @@ const PostList = styled.ul`
   grid-template-columns: repeat(3, minmax(260px, 1fr));
   list-style: none;
   padding: 0;
-  margin: 0;
+  max-width: 936px;
+  margin: 0 auto;
 `;
 const PostItemContainer = styled.li`
   display: flex;
@@ -68,6 +69,11 @@ const Tag = styled.span<{ $color: string }>`
   border-radius: 3px;
 `;
 
+const Article = styled.article`
+  max-width: 936px;
+  margin: 0 auto;
+`;
+
 interface PostItemProps {
   id: string;
   title: string;
@@ -99,4 +105,4 @@ const PostItem = ({ id, title, lastEditedTime, tags }: PostItemProps) => {
   );
 };
 
-export { PostList, PostItem };
+export { PostList, PostItem, Article };
